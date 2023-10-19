@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import "./GenreItem.css";
 
 const GenreItem = ({ genreTitle, genreId }) => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const GenreItem = ({ genreTitle, genreId }) => {
       .then((response) => response.json())
       .then((jsonData) => {
         document.dispatchEvent(
-          new CustomEvent("dataFetched", {
+          new CustomEvent("fetchMovies", {
             detail: { movies: jsonData, genre: genreTitle },
           })
         );
@@ -19,9 +20,11 @@ const GenreItem = ({ genreTitle, genreId }) => {
   };
 
   return (
-    <div>
-      {genreTitle}
-      <button onClick={() => fetchMovies()}>Fetch Data</button>
+    <div className="card">
+      <h2 className="genre-title">{genreTitle}</h2>
+      <button className="genre-button" onClick={() => fetchMovies()}>
+        Show Movies
+      </button>
     </div>
   );
 };

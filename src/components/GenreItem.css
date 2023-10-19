@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #d4e4e7, #87a4b8);
+  border-radius: 30px;
+  padding: 40px;
+  width: calc(25% - 10px);
+  margin-bottom: 20px;
+}
+.genre-title {
+  color: #333333;
+}
+
+.genre-button {
+  background-color: #5a98d1;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}

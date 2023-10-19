@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MovieItem from "../components/MovieItem";
+import "./MovieListPage.css";
 
 const MovieListPage = () => {
   const [movieList, setMovieList] = useState([]);
@@ -11,26 +12,28 @@ const MovieListPage = () => {
       setGenreTitle(event.detail.genre);
     };
 
-    document.addEventListener("dataFetched", handleDataFetched);
+    document.addEventListener("fetchMovies", handleDataFetched);
 
     return () => {
-      document.removeEventListener("dataFetched", handleDataFetched);
+      document.removeEventListener("fetchMovies", handleDataFetched);
     };
   }, []);
 
   return (
-    <div>
+    <div className="main-container">
       <h2>{genreTitle}</h2>
-      {movieList.length > 0 &&
-        movieList.map((movie) => (
-          <MovieItem
-            key={movie.id}
-            title={movie.title}
-            overview={movie.overview}
-            imagePath={movie.poster_path}
-            releaseDate={movie.release_date}
-          />
-        ))}
+      <div className="movies-container">
+        {movieList.length > 0 &&
+          movieList.map((movie) => (
+            <MovieItem
+              key={movie.id}
+              title={movie.title}
+              overview={movie.overview}
+              imagePath={movie.poster_path}
+              releaseDate={movie.release_date}
+            />
+          ))}
+      </div>
     </div>
   );
 };

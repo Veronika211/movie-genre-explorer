@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import GenreItem from "../components/GenreItem";
+import "./LandingPage.css";
 
 const LandingPage = () => {
   const [genres, setGenres] = useState([]);
@@ -29,7 +30,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div>
+    <div className="cards-container">
       {genres.length > 0 &&
         genres?.map((genre) => (
           <GenreItem
